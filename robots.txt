@@ -1,0 +1,62 @@
+# ============================================================
+#  robots.txt – LicenciaPro (https://www.licenciapro.es)
+#  Apartado C: Indexación en buscadores
+# ============================================================
+
+# -- Reglas para todos los bots --
+User-agent: *
+
+# Carpeta de imágenes – no indexar
+Disallow: /img/
+
+# Carpeta de documentos – no indexar
+Disallow: /docs/
+
+# Archivos por extensión – no indexar
+Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.docx$
+Disallow: /*.xls$
+Disallow: /*.xlsx$
+Disallow: /*.css$
+Disallow: /*.js$
+
+# Páginas internas de error o utilidad – no indexar
+Disallow: /404.html
+Disallow: /gracias.html
+
+# Permitir explícitamente todas las páginas HTML públicas
+Allow: /index.html
+Allow: /empresa.html
+Allow: /contacto.html
+Allow: /microsoft.html
+Allow: /adobe.html
+
+# Crawl-delay recomendado
+Crawl-delay: 10
+
+# ── Referencia al mapa del sitio ────────────────────────────
+Sitemap: https://www.licenciapro.es/sitemap.xml
+
+
+# ── Reglas específicas por bot ──────────────────────────────
+
+# Google Image Bot – bloquear carpeta de imágenes
+User-agent: Googlebot-Image
+Disallow: /img/
+
+# Bots de IA – bloquear entrenamiento con el contenido del sitio
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /

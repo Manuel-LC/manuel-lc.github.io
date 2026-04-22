@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml – LicenciaPro
+  Incluye únicamente las páginas HTML públicas e indexables.
+  Se excluyen: /img/, /docs/, /css/, /js/ y archivos PDF/DOC/XLS/CSS/JS
+  conforme a las restricciones del Apartado C.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+          http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Página de inicio -->
+  <url>
+    <loc>https://www.licenciapro.es/index.html</loc>
+    <lastmod>2025-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Página de empresa / quiénes somos -->
+  <url>
+    <loc>https://www.licenciapro.es/empresa.html</loc>
+    <lastmod>2025-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Página de contacto -->
+  <url>
+    <loc>https://www.licenciapro.es/contacto.html</loc>
+    <lastmod>2025-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Página de licencias Microsoft -->
+  <url>
+    <loc>https://www.licenciapro.es/microsoft.html</loc>
+    <lastmod>2025-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Página de licencias Adobe -->
+  <url>
+    <loc>https://www.licenciapro.es/adobe.html</loc>
+    <lastmod>2025-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>
