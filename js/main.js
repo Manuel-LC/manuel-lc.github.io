@@ -1,13 +1,11 @@
 /**
  * Librería Aurora - JavaScript Principal
- * Incluye: Lightbox, Scroll Animations, Theme Toggle, Chart.js, Lazy Loading
- * Act 5: Hamburguesa móvil, Focus trap, ARIA live, Foco restoration
  */
 
 document.addEventListener('DOMContentLoaded', function () {
 
   /* ============================================
-     ANNOUNCER ARIA-LIVE (Act 5 - Accesibilidad)
+     ANNOUNCER ARIA-LIVE
      Utilidad para anunciar cambios a lectores de pantalla
      ============================================ */
   function announce(message) {
@@ -22,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ============================================
-     MENÚ HAMBURGUESA MÓVIL (Act 5 - Accesibilidad)
+     MENÚ HAMBURGUESA MÓVIL
      Botón visible solo en pantallas pequeñas,
      con focus trap y gestión de ARIA
      ============================================ */
@@ -95,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ============================================
-     TEMA OSCURO (Tarea 1, Act 4) + Announce (Act 5)
+     TEMA OSCURO
      ============================================ */
   const themeToggle = document.getElementById('themeToggle');
   const themeToggleFooter = document.getElementById('themeToggleFooter');
@@ -151,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ============================================
-     SCROLL ANIMATIONS (Tarea 4, Act 2 - #5)
+     SCROLL ANIMATIONS
      IntersectionObserver para activar animaciones al scroll
      ============================================ */
   const scrollElements = document.querySelectorAll('.scroll-animate, .scale-in');
@@ -180,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ============================================
-     LAZY LOADING (Tarea 3, Act 3)
+     LAZY LOADING
      Carga imágenes solo cuando son visibles
      ============================================ */
   const lazyImages = document.querySelectorAll('img[data-src]');
@@ -214,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ============================================
-     LIGHTBOX (Tarea 3, Act 3) + Focus trap + Focus restoration (Act 5)
+     LIGHTBOX + Focus trap + Focus restoration
      Al hacer click en imagen de producto, abrir grande
      ============================================ */
   var lightboxOverlay = document.getElementById('lightbox');
@@ -301,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /* ============================================
-     CHART.JS - Estadísticas de ventas (Tarea 4, Act 4)
+     CHART.JS - Estadísticas de ventas
      ============================================ */
   const chartCanvas = document.getElementById('salesChart');
   if (chartCanvas && typeof Chart !== 'undefined') {
@@ -485,7 +483,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   /* ============================================
-     BUSCADOR SIMULADO (Tarea 2, Act 2 - SEO)
+     BUSCADOR SIMULADO
      ============================================ */
   const searchForms = document.querySelectorAll('.buscador');
   searchForms.forEach(function (form) {
@@ -496,6 +494,93 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'busqueda.html?q=' + encodeURIComponent(input.value.trim());
       }
     });
+  });
+
+  /* ============================================
+     BOTÓN LEER MÁS / LEER MENOS
+     ============================================ */
+  document.querySelectorAll('.read-more-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var container = btn.closest('.read-more-container') || btn.previousElementSibling;
+      if (!container) return;
+      var isExpanded = container.classList.toggle('expanded');
+      btn.textContent = isExpanded ? 'Leer menos' : 'Leer más';
+    });
+  });
+
+  /* ============================================
+     VALORACIÓN POR ESTRELLAS
+     ============================================ */
+  var starContainer = document.querySelector('.star-rating-interactive');
+  var ratingLabel = document.getElementById('ratingLabel');
+
+  if (starContainer && ratingLabel) {
+    var stars = starContainer.querySelectorAll('.star');
+    var ratingTexts = ['', 'Malo', 'Regular', 'Bueno', 'Muy bueno', 'Excelente'];
+
+    stars.forEach(function (star) {
+      star.addEventListener('click', function () {
+        var value = star.dataset.value;
+        stars.forEach(function (s) { s.classList.remove('selected'); });
+        // Seleccionar esta estrella y todas las anteriores (direction: rtl)
+        star.classList.add('selected');
+        ratingLabel.textContent = 'Tu valoración: ' + value + '/5 — ' + ratingTexts[value];
+        starContainer.setAttribute('aria-valuenow', value);
+        announce('Has valorado el libro con ' + value + ' estrellas');
+      });
+
+      star.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          star.click();
+        }
+      });
+    });
+  }
+
+  /* ============================================
+     ATAJOS DE TECLADO
+     ============================================ */
+  var toastContainer = document.querySelector('.toast-container');
+
+  function showToast(message) {
+    if (!toastContainer) {
+      toastContainer = document.createElement('div');
+      toastContainer.className = 'toast-container';
+      toastContainer.style.cssText = 'position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;';
+      document.body.appendChild(toastContainer);
+    }
+    var toast = document.createElement('div');
+    toast.className = 'toast-item';
+    toast.style.cssText = 'background:var(--primary);color:#fff;padding:0.6rem 1.2rem;border-radius:0.5rem;margin-top:0.5rem;font-size:0.85rem;font-family:var(--font-main);opacity:0;transform:translateY(10px);transition:opacity 0.3s,transform 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.2);';
+    toast.textContent = message;
+    toastContainer.appendChild(toast);
+    requestAnimationFrame(function () {
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateY(0)';
+    });
+    setTimeout(function () {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(10px)';
+      setTimeout(function () { toast.remove(); }, 300);
+    }, 2000);
+  }
+
+  document.addEventListener('keydown', function (e) {
+    var tag = document.activeElement.tagName.toLowerCase();
+    if (tag === 'input' || tag === 'textarea' || tag === 'select') return;
+
+    if (e.key === 't' || e.key === 'T') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      showToast('Scroll al inicio (atajo: T)');
+    }
+    if (e.key === '/') {
+      e.preventDefault();
+      var searchInput = document.getElementById('searchInput');
+      if (searchInput) searchInput.focus();
+      showToast('Buscador enfocado (atajo: /)');
+    }
   });
 
 });

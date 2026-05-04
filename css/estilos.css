@@ -2,7 +2,7 @@
    Librería Aurora - Hoja de Estilos Principal
    ============================================ */
 
-/* --- Variables CSS (Tarea 1, Actividad 1) --- */
+/* --- Variables CSS --- */
 :root {
   /* Paleta */
   --primary: #6a4c93;
@@ -22,7 +22,7 @@
   /* Tipografía */
   --font-main: 'Poppins', sans-serif;
 
-  /* Animaciones (Tarea 4, Actividad 2) */
+  /* Animaciones */
   --duracion-transicion: 0.3s;
   --duracion-animacion: 2s;
   --color-primario: #6a4c93;
@@ -73,7 +73,7 @@ body {
 
 /* Logo */
 .logo {
-  width: clamp(80px, 8%, 150px);
+  width: clamp(160px, 8%, 230px);
   height: auto;
   transition: transform var(--duracion-transicion) ease;
 }
@@ -83,7 +83,7 @@ body {
   transform: scale(1.05);
 }
 
-/* --- Animación SVG del logo (Tarea 4, Act 3) --- */
+/* --- Animación SVG del logo --- */
 .book-icon {
   animation: logoEntrada 1s ease-out forwards;
   transform-origin: center;
@@ -184,7 +184,7 @@ body {
 }
 
 /* ============================================
-   HERO (Tarea 3, Act 2 - Montaje con desvanecimiento)
+   HERO (Montaje con desvanecimiento)
    ============================================ */
 .hero {
   display: flex;
@@ -211,11 +211,11 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Filtro de color para mejorar la imagen (Tarea 3, Act 2) */
+  /* Filtro de color para mejorar la imagen */
   filter: brightness(0.85) saturate(1.2) contrast(1.05);
 }
 
-/* Desvanecimiento a negro en el lado izquierdo (Tarea 3, Act 2) */
+/* Desvanecimiento a negro en el lado izquierdo */
 .hero-bg::after {
   content: '';
   position: absolute;
@@ -270,7 +270,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Efecto pulse en CTA (Tarea 4, Act 2 - #4) */
+/* Efecto pulse en CTA */
 .btn-cta {
   animation: pulse 2s infinite;
 }
@@ -327,7 +327,7 @@ body {
 }
 
 /* ============================================
-   MICROINTERACCIÓN EN PORTADAS (Tarea 4, Act 2 - #1)
+   MICROINTERACCIÓN EN PORTADAS
    Hover + teclado en tarjetas de libro
    ============================================ */
 .card {
@@ -370,7 +370,7 @@ body {
   transition: all 0.4s ease;
 }
 
-/* Tarea 4, Act 2 - #1: Hover en portada de libro */
+/* Hover en portada de libro */
 .card:hover img,
 .card:focus-within img {
   filter: grayscale(0%) brightness(1);
@@ -380,7 +380,7 @@ body {
 }
 
 /* ============================================
-   SEPARADOR ANIMADO (Tarea 4, Act 2 - #2)
+   SEPARADOR ANIMADO
    Barra que se desplaza y cambia de color
    ============================================ */
 .separator-animated {
@@ -432,7 +432,7 @@ body {
 }
 
 /* ============================================
-   BORDE ANIMADO IMAGEN PRINCIPAL (Tarea 4, Act 2 - #3)
+   BORDE ANIMADO IMAGEN PRINCIPAL
    ============================================ */
 .animated-border {
   position: relative;
@@ -457,7 +457,7 @@ body {
 }
 
 /* ============================================
-   ANIMACIÓN AL HACER SCROLL (Tarea 4, Act 2 - #5)
+   ANIMACIÓN AL HACER SCROLL
    Se activa con IntersectionObserver via JS
    ============================================ */
 .scroll-animate {
@@ -472,18 +472,16 @@ body {
 }
 
 /* ============================================
-   ANIMACIONES LIBRES (Tarea 4, Act 2 - #6 y #7)
-   #6: Fade-in escalonado
-   #7: Texto con efecto typewriter
+   ANIMACIONES LIBRES
    ============================================ */
 
-/* #6: Fade-in escalonado para las tarjetas */
+/* Fade-in escalonado para las tarjetas */
 .stagger-fade > *:nth-child(1) { transition-delay: 0.1s; }
 .stagger-fade > *:nth-child(2) { transition-delay: 0.2s; }
 .stagger-fade > *:nth-child(3) { transition-delay: 0.3s; }
 .stagger-fade > *:nth-child(4) { transition-delay: 0.4s; }
 
-/* #7: Efecto de aparición con escala */
+/* Efecto de aparición con escala */
 .scale-in {
   opacity: 0;
   transform: scale(0.8);
@@ -496,7 +494,7 @@ body {
 }
 
 /* ============================================
-   BANNER PUBLICITARIO (Tarea 4, Act 1)
+   BANNER PUBLICITARIO
    ============================================ */
 .banner-section {
   padding: 2rem 1rem;
@@ -833,7 +831,7 @@ body {
 }
 
 /* ============================================
-   PÁGINA DE INFORMACIÓN (Tarea 3, Act 4)
+   PÁGINA DE INFORMACIÓN
    ============================================ */
 .informacion {
   padding: 2rem 0;
@@ -945,7 +943,7 @@ body {
 }
 
 /* ============================================
-   LIGHTBOX / MODAL (Tarea 3, Act 3)
+   LIGHTBOX / MODAL
    ============================================ */
 .lightbox-overlay {
   display: none;
@@ -995,7 +993,7 @@ body {
 }
 
 /* ============================================
-   CHART.JS CONTAINER (Tarea 4, Act 4)
+   CHART.JS CONTAINER
    ============================================ */
 .chart-section {
   padding: 3rem 1rem;
@@ -1115,7 +1113,7 @@ body {
 }
 
 /* ============================================
-   SKIP NAV LINK (Accesibilidad)
+   SKIP NAV LINK
    ============================================ */
 .skip-link {
   position: absolute;
@@ -1135,7 +1133,7 @@ body {
   top: 0;
 }
 
-/* Cart como enlace (Act 5 - Corrección: button anidado dentro de a) */
+/* Cart como enlace */
 a.cart-btn {
   display: inline-flex;
   align-items: center;
@@ -1165,6 +1163,51 @@ body.theme-dark a.cart-btn:focus-visible {
 }
 
 /* ============================================
+   HAMBURGUESA MÓVIL
+   ============================================ */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  background: none;
+  border: 2px solid var(--primary);
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  transition: all var(--duracion-transicion);
+}
+
+.menu-toggle:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.hamburger-line {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: var(--text-color);
+  border-radius: 2px;
+  transition: all var(--duracion-transicion);
+}
+
+/* Animación hamburguesa → X */
+.menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ============================================
    RESPONSIVE
    ============================================ */
 @media (max-width: 768px) {
@@ -1179,7 +1222,7 @@ body.theme-dark a.cart-btn:focus-visible {
     max-width: 100%;
   }
 
-  /* Menú hamburguesa visible en móvil (Act 5) */
+  /* Menú hamburguesa visible en móvil */
   .menu-toggle {
     display: flex;
     order: -1;
@@ -1265,7 +1308,7 @@ body.theme-dark a.cart-btn:focus-visible {
 }
 
 /* ============================================
-   MODO OSCURO (Tarea 1, Act 4)
+   MODO OSCURO
    ============================================ */
 body.theme-dark {
   --primary: #cbb5ff;
@@ -1404,52 +1447,7 @@ body.theme-dark .chart-btn.active {
 }
 
 /* ============================================
-   HAMBURGUESA MÓVIL (Act 5 - Accesibilidad)
-   ============================================ */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 4px;
-  background: none;
-  border: 2px solid var(--primary);
-  border-radius: 0.4rem;
-  padding: 0.4rem;
-  cursor: pointer;
-  width: 36px;
-  height: 36px;
-  transition: all var(--duracion-transicion);
-}
-
-.menu-toggle:focus-visible {
-  outline: 3px solid var(--primary);
-  outline-offset: 2px;
-}
-
-.hamburger-line {
-  display: block;
-  width: 18px;
-  height: 2px;
-  background-color: var(--text-color);
-  border-radius: 2px;
-  transition: all var(--duracion-transicion);
-}
-
-/* Animación hamburguesa → X */
-.menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-
-.menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-/* ============================================
-   SCREEN READER ONLY (Act 5 - Accesibilidad)
+   SCREEN READER ONLY
    ============================================ */
 .sr-only {
   position: absolute;
@@ -1464,7 +1462,7 @@ body.theme-dark .chart-btn.active {
 }
 
 /* ============================================
-   ACCESIBILIDAD: PREFERS-REDUCED-MOTION (Tarea 4, Act 2)
+   ACCESIBILIDAD: PREFERS-REDUCED-MOTION
    ============================================ */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -1511,4 +1509,77 @@ input:focus-visible,
 select:focus-visible {
   outline: 3px solid var(--primary);
   outline-offset: 2px;
+}
+
+/* ============================================
+   LEER MÁS / LEER MENOS
+   ============================================ */
+.read-more-full {
+  display: none;
+}
+
+.read-more-container.expanded .read-more-short {
+  display: none;
+}
+
+.read-more-container.expanded .read-more-full {
+  display: inline;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  padding: 0;
+  margin-left: 0.3rem;
+  text-decoration: underline;
+  transition: color var(--duracion-transicion);
+}
+
+.read-more-btn:hover,
+.read-more-btn:focus-visible {
+  color: var(--secondary);
+}
+
+/* ============================================
+   VALORACIÓN POR ESTRELLAS
+   ============================================ */
+.star-rating-interactive {
+  display: inline-flex;
+  gap: 0.3rem;
+  font-size: 1.6rem;
+  cursor: pointer;
+  direction: rtl;
+  padding: 0.5rem 0;
+}
+
+.star-rating-interactive .star {
+  color: #ccc;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.star-rating-interactive .star:hover,
+.star-rating-interactive .star:hover ~ .star,
+.star-rating-interactive .star.selected,
+.star-rating-interactive .star.selected ~ .star {
+  color: #f5a623;
+}
+
+.star-rating-interactive .star.selected {
+  animation: starPop 0.3s ease;
+}
+
+@keyframes starPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+.star-rating-label {
+  font-size: 0.85rem;
+  color: #666;
+  margin-left: 0.5rem;
 }

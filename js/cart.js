@@ -1,10 +1,7 @@
 /**
- * Librería Aurora - Carrito de Compras (Actividad 3)
+ * Librería Aurora - Carrito de compras
  * Persistencia en localStorage, renderizado dinámico,
  * panel desplegable y modal de confirmación Bootstrap.
- *
- * Basado en la clase ShoppingCart.mjs proporcionada como apoyo,
- * adaptada para el proyecto Librería Aurora con catálogo de productos.
  */
 
 /* ============================================
@@ -72,8 +69,6 @@ var CATALOGO = [
 
 /* ============================================
    CLASE SHOPPING CART
-   Basada en ShoppingCart.mjs proporcionada como apoyo.
-   Usa localStorage para persistencia.
    ============================================ */
 var ShoppingCart = (function () {
   'use strict';
@@ -103,7 +98,7 @@ var ShoppingCart = (function () {
     }
   };
 
-  /* Añadir un producto al carrito (similar a carritoAumentar en ShoppingCart.mjs) */
+  /* Añadir un producto al carrito */
   ShoppingCart.prototype.addItem = function (productId, quantity) {
     quantity = quantity || 1;
     var existing = null;
@@ -132,7 +127,7 @@ var ShoppingCart = (function () {
     this._updateCartBadge();
   };
 
-  /* Eliminar producto del carrito (similar a carritoEliminar) */
+  /* Eliminar producto del carrito */
   ShoppingCart.prototype.removeItem = function (productId) {
     this.items = this.items.filter(function (item) {
       return item.id !== productId;
@@ -141,7 +136,7 @@ var ShoppingCart = (function () {
     this._updateCartBadge();
   };
 
-  /* Reducir cantidad (similar a carritoReducir) */
+  /* Reducir cantidad */
   ShoppingCart.prototype.decreaseQuantity = function (productId) {
     for (var i = 0; i < this.items.length; i++) {
       if (this.items[i].id === productId) {
@@ -156,7 +151,7 @@ var ShoppingCart = (function () {
     this._updateCartBadge();
   };
 
-  /* Aumentar cantidad (similar a carritoAumentar) */
+  /* Aumentar cantidad */
   ShoppingCart.prototype.increaseQuantity = function (productId) {
     for (var i = 0; i < this.items.length; i++) {
       if (this.items[i].id === productId) {
@@ -168,7 +163,7 @@ var ShoppingCart = (function () {
     this._updateCartBadge();
   };
 
-  /* Modificar valor exacto (similar a carritoModificarValor) */
+  /* Modificar valor exacto */
   ShoppingCart.prototype.updateQuantity = function (productId, quantity) {
     if (quantity <= 0) {
       this.removeItem(productId);
@@ -487,7 +482,7 @@ function renderCartPage() {
     });
   }
 
-  /* Evento: botón eliminar → mostrar modal de confirmación */
+  /* Evento: botón eliminar -> mostrar modal de confirmación */
   var deleteBtns = container.querySelectorAll('.cart-delete-btn');
   for (var m = 0; m < deleteBtns.length; m++) {
     deleteBtns[m].addEventListener('click', function (e) {
@@ -530,9 +525,8 @@ function updateShippingAlert() {
 }
 
 /* ============================================
-   MODAL DE CONFIRMACIÓN (Bootstrap 5)
+   MODAL DE CONFIRMACIÓN CON BOOTSTRAP 5
    Para eliminar productos del carrito
-   https://getbootstrap.com/docs/5.3/components/modal/
    ============================================ */
 var pendingDeleteId = null;
 
