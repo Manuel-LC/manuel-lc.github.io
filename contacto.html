@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contacto e información de Librería Aurora. Conócenos, encuentra nuestra ubicación en Madrid y contacta con nuestro equipo." />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="contacto librería, Librería Aurora Madrid, ubicación, teléfono, email" />
+  <title>Contacto - Librería Aurora</title>
+  <link rel="canonical" href="https://libreriaaurora.es/contacto.html" />
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 CSS (Tarea 1, Act 3) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/estilos.css" />
+  <link rel="stylesheet" href="css/animaciones-logo.css" />
+</head>
+<body>
+  <div id="ariaAnnouncer" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container header-content">
+      <a href="index.html" aria-label="Librería Aurora - Inicio">
+        <img src="img/logo_claro.svg" alt="Logo Librería Aurora" class="logo" />
+      </a>
+      <!-- Botón hamburguesa móvil (Act 5) -->
+      <button id="menuToggle" class="menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mainNav">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <nav id="mainNav" class="main-nav" role="navigation" aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="producto.html">Productos</a></li>
+          <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <form action="busqueda.html" method="get" class="buscador" role="search" aria-label="Buscar libros">
+          <label for="searchInput" class="sr-only">Buscar libros</label>
+          <input id="searchInput" type="search" name="q" placeholder="Buscar libros..." aria-label="Buscar libros" />
+        </form>
+        <select aria-label="Seleccionar idioma">
+          <option value="es" selected>ES</option>
+          <option value="en">EN</option>
+        </select>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cambiar tema claro/oscuro">Modo oscuro</button>
+        <a href="carrito.html" class="cart-btn" aria-label="Ir al carrito de compras">
+          <img src="img/carrito.svg" alt="" width="18" height="18" aria-hidden="true" />
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main id="main-content" role="main" class="contacto">
+    <section class="historia scroll-animate">
+      <div class="container">
+        <h1>Sobre nosotros</h1>
+        <p>
+          Somos un pequeño equipo de apasionados por los libros.
+          Librería Aurora nació en 2015 con la idea de crear un espacio donde cada historia
+          encuentre a su lector ideal. Desde entonces, hemos crecido gracias al apoyo de nuestra
+          comunidad de lectores y a nuestra apuesta por una selección cuidadosa y personalizada.
+        </p>
+        <p>
+          Trabajamos con editoriales independientes y una cuidada selección de clásicos.
+          Creemos en el poder transformador de la lectura y en el valor del comercio de barrio.
+          Nuestro catálogo abarca desde novedades literarias hasta ensayo, poesía, literatura infantil
+          y clásicos universales, siempre con la máxima atención a la calidad editorial.
+        </p>
+      </div>
+    </section>
+
+    <section class="equipo scroll-animate">
+      <h2>Nuestro equipo</h2>
+      <div class="container">
+        <div class="cards stagger-fade">
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face"
+                 alt="Laura Gómez, fundadora y gestora cultural de Librería Aurora"
+                 loading="lazy" width="350" height="350" />
+            <h3>Laura Gómez</h3>
+            <p>Fundadora y gestora cultural. Graduada en Filología Hispánica, coordina los eventos literarios y la selección de novedades de la librería.</p>
+          </article>
+
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
+                 alt="Pedro Ruiz, curador de autores de Librería Aurora"
+                 loading="lazy" width="350" height="350" />
+            <h3>Pedro Ruiz</h3>
+            <p>Curador de autores. Especialista en literatura contemporánea y ciencia ficción. Organiza los clubes de lectura mensuales.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Separador animado (Tarea 4, Act 2) -->
+    <div class="separator-animated" role="separator" aria-hidden="true"></div>
+
+    <section class="contacto-info scroll-animate">
+      <h2>Contáctanos</h2>
+      <div class="container">
+        <div class="info-grid">
+          <div class="datos">
+            <h3 style="margin-bottom: 0.8rem;">Información de contacto</h3>
+            <p>
+              <img src="img/location.svg" alt="" width="20" height="20" aria-hidden="true" />
+              Calle de las Letras 42, Madrid
+            </p>
+            <p>
+              <img src="img/phone.svg" alt="" width="20" height="20" aria-hidden="true" />
+              <a href="tel:+34690004567" style="color: inherit; text-decoration: none;">690 00 45 67</a>
+            </p>
+            <p>
+              <img src="img/mail.svg" alt="" width="20" height="20" aria-hidden="true" />
+              <a href="mailto:contacto@libreriaaurora.es" style="color: inherit; text-decoration: none;">contacto@libreriaaurora.es</a>
+            </p>
+            <p style="margin-top: 1rem;">Y también en nuestras redes sociales...</p>
+          </div>
+          <div class="mapa">
+            <img src="img/hero_books.jpg" alt="Vista exterior de la Librería Aurora en Madrid, ubicada en la Calle de las Letras" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-content">
+      <p>&copy; 2025 Librería Aurora. Todos los derechos reservados.</p>
+      <nav class="footer-links" aria-label="Enlaces del pie de página">
+        <a href="informacion.html">Sobre nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="informacion.html#mapa">Ubicación</a>
+        <button id="themeToggleFooter" class="theme-toggle" type="button" style="background:none;border:none;cursor:pointer;font-family:var(--font-main);color:var(--text-color);text-decoration:underline;font-size:0.9rem;">Modo oscuro</button>
+      </nav>
+      <div class="socials" aria-label="Redes sociales">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Librería Aurora">
+          <img src="img/facebook.svg" alt="" width="18" height="18" aria-hidden="true" />
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Librería Aurora">
+          <img src="img/instagram.svg" alt="" width="18" height="18" aria-hidden="true" />
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) de Librería Aurora">
+          <img src="img/twitter.svg" alt="" width="18" height="18" aria-hidden="true" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
