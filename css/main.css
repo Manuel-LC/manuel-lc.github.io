@@ -1,0 +1,157 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.newBirthday {
+    margin-bottom: 30px;
+
+
+
+    label {
+        display: block;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1em;
+    }
+
+    .btn {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin: 0 auto;
+        padding: 0;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 1.5em;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease,;
+
+        &:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+    }
+}
+.subheader{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+
+
+    h2{
+        margin: 0px;
+    }
+    input{
+        height: 20px;
+        width: 50px;
+    }
+}
+.nextBirthdays {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten */
+    gap: 10px; /* Espaciado entre los elementos */
+
+    .birthday {
+        flex: 1 1 calc(50% - 10px); /* Toma 50% del ancho menos el gap */
+        padding: 10px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        font-size: 1em;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+            background-color: #e6ffe6;
+            border-left: 4px solid #4CAF50;
+            transform: scale(1.05); /* Agrega un ligero efecto de aumento al pasar el mouse */
+        }
+    }
+}
+
+@media (min-width: 601px) {
+    .newBirthday {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+                gap: 10px;
+        
+    }
+
+    .newBirthday label {
+        flex: 1;
+    }
+
+    input{
+        margin-bottom: 0px !important;
+    }
+
+    .newBirthday input[type="text"],
+    .newBirthday input[type="date"] {
+        flex: 2;
+    }
+
+    .newBirthday .btn {
+        flex: 0;
+        min-width: 40px;
+    }
+}
+#btnClear{
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: all 0.3s ease, transform 0.3s ease;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: #8b0000;
+        border-left: 4px solid #ffffff;
+        transform: scale(1.05); /* Agrega un ligero efecto de aumento al pasar el mouse */
+    }
+}

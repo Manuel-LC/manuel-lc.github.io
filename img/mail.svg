@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Mail/Envelope Icon -->
+  <g fill="none" stroke="#6a4c93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Envelope body -->
+    <rect x="3" y="7" width="26" height="18" rx="2" ry="2"/>
+    <!-- Envelope flap -->
+    <polyline points="3 9 16 18 29 9"/>
+    <!-- Bottom V lines -->
+    <line x1="3" y1="25" x2="11" y2="17"/>
+    <line x1="29" y1="25" x2="21" y2="17"/>
+  </g>
+</svg>

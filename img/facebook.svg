@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Facebook Icon -->
+  <g fill="none" stroke="#6a4c93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Rounded square -->
+    <rect x="4" y="4" width="24" height="24" rx="5" ry="5"/>
+    <!-- F letter -->
+    <path d="M13 24 L13 17 L10 17 L10 14 L13 14 L13 11.5 C13 9.5 14.5 8 16.5 8 L19 8 L19 11 L17 11 C16.4 11 16 11.4 16 12 L16 14 L19 14 L18.5 17 L16 17 L16 24"/>
+  </g>
+</svg>

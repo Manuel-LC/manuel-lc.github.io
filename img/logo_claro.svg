@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <defs>
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f6f4f9"/>
+      <stop offset="100%" stop-color="#b8a9c9"/>
+    </linearGradient>
+  </defs>
+  <!-- Book Icon -->
+  <g class="book-icon">
+    <!-- Left page -->
+    <path d="M14 20 C14 20 6 17 2 18 L2 42 C6 41 14 43 14 43 Z"
+          fill="#6a4c93" opacity="0.8"/>
+    <!-- Right page -->
+    <path d="M14 20 C14 20 22 17 26 18 L26 42 C22 41 14 43 14 43 Z"
+          fill="#6a4c93"/>
+    <!-- Page lines left -->
+    <line x1="5" y1="24" x2="12" y2="23" stroke="#f6f4f9" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+    <line x1="5" y1="28" x2="12" y2="27" stroke="#f6f4f9" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+    <line x1="5" y1="32" x2="12" y2="31" stroke="#f6f4f9" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+    <!-- Page lines right -->
+    <line x1="16" y1="23" x2="23" y2="24" stroke="#f6f4f9" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+    <line x1="16" y1="27" x2="23" y2="28" stroke="#f6f4f9" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+    <line x1="16" y1="31" x2="23" y2="32" stroke="#f6f4f9" stroke-width="0.8" stroke-linecap="round" opacity="0.5"/>
+    <!-- Spine -->
+    <line x1="14" y1="19" x2="14" y2="43" stroke="#6a4c93" stroke-width="1.2"/>
+  </g>
+  <!-- Star/Sun element (Aurora) -->
+  <g class="star-element" transform="translate(14, 12)">
+    <circle cx="0" cy="0" r="2.5" fill="#b8a9c9"/>
+    <line x1="0" y1="-5" x2="0" y2="-3.5" stroke="#b8a9c9" stroke-width="1" stroke-linecap="round"/>
+    <line x1="0" y1="3.5" x2="0" y2="5" stroke="#b8a9c9" stroke-width="1" stroke-linecap="round"/>
+    <line x1="-5" y1="0" x2="-3.5" y2="0" stroke="#b8a9c9" stroke-width="1" stroke-linecap="round"/>
+    <line x1="3.5" y1="0" x2="5" y2="0" stroke="#b8a9c9" stroke-width="1" stroke-linecap="round"/>
+    <line x1="-3.5" y1="-3.5" x2="-2.5" y2="-2.5" stroke="#b8a9c9" stroke-width="0.8" stroke-linecap="round"/>
+    <line x1="2.5" y1="-2.5" x2="3.5" y2="-3.5" stroke="#b8a9c9" stroke-width="0.8" stroke-linecap="round"/>
+    <line x1="-3.5" y1="3.5" x2="-2.5" y2="2.5" stroke="#b8a9c9" stroke-width="0.8" stroke-linecap="round"/>
+    <line x1="2.5" y1="2.5" x2="3.5" y2="3.5" stroke="#b8a9c9" stroke-width="0.8" stroke-linecap="round"/>
+  </g>
+  <!-- Text "Librería Aurora" -->
+  <text x="33" y="36" font-family="Georgia, 'Times New Roman', serif" font-size="16" fill="#6a4c93" font-weight="bold" letter-spacing="0.5">
+    Librería
+  </text>
+  <text x="33" y="52" font-family="Georgia, 'Times New Roman', serif" font-size="13" fill="#b8a9c9" letter-spacing="1.5" font-style="italic">
+    AURORA
+  </text>
+</svg>

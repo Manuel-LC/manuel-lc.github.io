@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#6a4c93"/>
+  <g transform="translate(6,4)">
+    <!-- Book shape -->
+    <path d="M2,2 L10,4 L10,24 L2,22 Z" fill="#fff" opacity="0.9"/>
+    <path d="M18,2 L10,4 L10,24 L18,22 Z" fill="#fff" opacity="0.7"/>
+    <path d="M18,2 L10,4 L2,2" fill="none" stroke="#cbb5ff" stroke-width="0.8"/>
+    <!-- Pages -->
+    <line x1="4" y1="6" x2="8" y2="7" stroke="#6a4c93" stroke-width="0.5" opacity="0.5"/>
+    <line x1="4" y1="9" x2="8" y2="10" stroke="#6a4c93" stroke-width="0.5" opacity="0.5"/>
+    <line x1="4" y1="12" x2="8" y2="13" stroke="#6a4c93" stroke-width="0.5" opacity="0.5"/>
+    <line x1="12" y1="7" x2="16" y2="6" stroke="#6a4c93" stroke-width="0.5" opacity="0.5"/>
+    <line x1="12" y1="10" x2="16" y2="9" stroke="#6a4c93" stroke-width="0.5" opacity="0.5"/>
+    <line x1="12" y1="13" x2="16" y2="12" stroke="#6a4c93" stroke-width="0.5" opacity="0.5"/>
+    <!-- Star -->
+    <polygon points="10,1 11,3 13,3 11.5,4.5 12,6.5 10,5.2 8,6.5 8.5,4.5 7,3 9,3" fill="#cbb5ff"/>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Package/Shipping Icon -->
+  <g fill="none" stroke="#6a4c93" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Box body -->
+    <rect x="3" y="12" width="26" height="17" rx="1.5" ry="1.5"/>
+    <!-- Box top flap -->
+    <polyline points="3 12 7 5 25 5 29 12"/>
+    <!-- Center vertical tape -->
+    <line x1="16" y1="5" x2="16" y2="29"/>
+    <!-- Horizontal sealing line -->
+    <line x1="7" y1="5" x2="25" y2="5"/>
+    <!-- Top tape tie -->
+    <polyline points="13 5 16 9 19 5"/>
+  </g>
+</svg>

@@ -1,0 +1,1514 @@
+/* ============================================
+   Librería Aurora - Hoja de Estilos Principal
+   ============================================ */
+
+/* --- Variables CSS (Tarea 1, Actividad 1) --- */
+:root {
+  /* Paleta */
+  --primary: #6a4c93;
+  --secondary: #b8a9c9;
+  --accent: #f6f4f9;
+  --text-color: #222;
+  --white: #fff;
+  --success: #4caf50;
+  --danger: #e53935;
+  --warning: #ff9800;
+
+  /* Medidas */
+  --max-width: 1200px;
+  --spacing: 1.5rem;
+  --radius: 1rem;
+
+  /* Tipografía */
+  --font-main: 'Poppins', sans-serif;
+
+  /* Animaciones (Tarea 4, Actividad 2) */
+  --duracion-transicion: 0.3s;
+  --duracion-animacion: 2s;
+  --color-primario: #6a4c93;
+  --color-secundario: #b8a9c9;
+  --color-terciario: #cbb5ff;
+}
+
+/* --- Reset --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-color);
+  line-height: 1.6;
+  background: linear-gradient(to bottom, #f8f6fb, #ece3fa);
+  background-attachment: fixed;
+}
+
+/* --- Contenedor general --- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing);
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.site-header {
+  background-color: var(--accent);
+  padding: var(--spacing) 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+.logo {
+  width: clamp(80px, 8%, 150px);
+  height: auto;
+  transition: transform var(--duracion-transicion) ease;
+}
+
+.logo:hover,
+.logo:focus-visible {
+  transform: scale(1.05);
+}
+
+/* --- Animación SVG del logo (Tarea 4, Act 3) --- */
+.book-icon {
+  animation: logoEntrada 1s ease-out forwards;
+  transform-origin: center;
+}
+
+@keyframes logoEntrada {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.8);
+  }
+  60% {
+    transform: translateY(2px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.logo:hover .book-icon {
+  animation: logoHover 0.6s ease-in-out;
+}
+
+@keyframes logoHover {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.1) rotate(-3deg); }
+  50% { transform: scale(1.15) rotate(3deg); }
+  75% { transform: scale(1.1) rotate(-2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* Navegación */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.3rem;
+  transition: color var(--duracion-transicion), background-color var(--duracion-transicion);
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible {
+  color: var(--primary);
+  text-decoration: underline;
+  background-color: rgba(106, 76, 147, 0.08);
+}
+
+.main-nav a:visited {
+  color: var(--text-color);
+}
+
+.main-nav a.active {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* Acciones del header */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.header-actions input[type="search"] {
+  padding: 0.3rem 0.5rem;
+  border: 2px solid #ccc;
+  border-radius: 0.3rem;
+  transition: border-color var(--duracion-transicion);
+}
+
+.header-actions input[type="search"]:focus {
+  border-color: var(--primary);
+  outline: 2px solid var(--secondary);
+  outline-offset: 1px;
+}
+
+.cart-btn {
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background-color var(--duracion-transicion), transform var(--duracion-transicion);
+}
+
+.cart-btn:hover,
+.cart-btn:focus-visible {
+  background-color: var(--secondary);
+  transform: scale(1.05);
+}
+
+/* ============================================
+   HERO (Tarea 3, Act 2 - Montaje con desvanecimiento)
+   ============================================ */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 4rem 1.5rem;
+  color: var(--white);
+  position: relative;
+  min-height: 400px;
+  border-bottom: 4px solid var(--secondary);
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Filtro de color para mejorar la imagen (Tarea 3, Act 2) */
+  filter: brightness(0.85) saturate(1.2) contrast(1.05);
+}
+
+/* Desvanecimiento a negro en el lado izquierdo (Tarea 3, Act 2) */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.4) 40%,
+    rgba(106, 76, 147, 0.6) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-width: 250px;
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  margin-bottom: 1.5rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+/* ============================================
+   BOTONES Y CTA
+   ============================================ */
+.btn-cta {
+  display: inline-block;
+  background-color: var(--white);
+  color: var(--primary);
+  padding: 0.8rem 1.5rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all var(--duracion-transicion) ease;
+}
+
+.btn-cta:hover,
+.btn-cta:focus-visible {
+  background-color: var(--secondary);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
+/* Efecto pulse en CTA (Tarea 4, Act 2 - #4) */
+.btn-cta {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(106, 76, 147, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(106, 76, 147, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(106, 76, 147, 0);
+  }
+}
+
+.btn-cta:hover {
+  animation: none;
+  box-shadow: 0 4px 15px rgba(106, 76, 147, 0.3);
+}
+
+/* ============================================
+   SECCIONES
+   ============================================ */
+.section {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.section h2 {
+  color: var(--primary);
+  margin-bottom: 2rem;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 550px));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: transform var(--duracion-transicion) ease, box-shadow var(--duracion-transicion) ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   MICROINTERACCIÓN EN PORTADAS (Tarea 4, Act 2 - #1)
+   Hover + teclado en tarjetas de libro
+   ============================================ */
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(106, 76, 147, 0.05), rgba(184, 169, 201, 0.1));
+  opacity: 0;
+  transition: opacity var(--duracion-transicion) ease;
+  z-index: 0;
+  border-radius: var(--radius);
+}
+
+.card:hover::before,
+.card:focus-within::before {
+  opacity: 1;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card img {
+  width: 70%;
+  height: 80%;
+  border-radius: 0.6rem;
+  object-fit: cover;
+  margin-bottom: 0.8rem;
+  border: 2px solid var(--secondary);
+  filter: grayscale(20%) brightness(0.95);
+  transition: all 0.4s ease;
+}
+
+/* Tarea 4, Act 2 - #1: Hover en portada de libro */
+.card:hover img,
+.card:focus-within img {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.04);
+  border-color: var(--primary);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   SEPARADOR ANIMADO (Tarea 4, Act 2 - #2)
+   Barra que se desplaza y cambia de color
+   ============================================ */
+.separator-animated {
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--color-terciario), var(--primary));
+  background-size: 300% 100%;
+  animation: separadorMovimiento 3s linear infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.separator-animated::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -100%;
+  width: 50%;
+  height: 8px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: separadorBrillo 2s linear infinite;
+}
+
+@keyframes separadorMovimiento {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+@keyframes separadorBrillo {
+  0% { left: -50%; }
+  100% { left: 100%; }
+}
+
+/* ============================================
+   FRANJAS DESTACADAS
+   ============================================ */
+.highlight {
+  background: linear-gradient(90deg, var(--secondary), var(--primary));
+  text-align: center;
+  color: var(--white);
+  padding: 1.8rem;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 500;
+}
+
+.highlight .highlight-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.3rem;
+}
+
+/* ============================================
+   BORDE ANIMADO IMAGEN PRINCIPAL (Tarea 4, Act 2 - #3)
+   ============================================ */
+.animated-border {
+  position: relative;
+  border-radius: 0.6rem;
+  padding: 3px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary), var(--color-terciario), var(--primary));
+  background-size: 400% 400%;
+  animation: bordeAnimado 4s ease infinite;
+}
+
+@keyframes bordeAnimado {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-border img {
+  display: block;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: auto;
+}
+
+/* ============================================
+   ANIMACIÓN AL HACER SCROLL (Tarea 4, Act 2 - #5)
+   Se activa con IntersectionObserver via JS
+   ============================================ */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   ANIMACIONES LIBRES (Tarea 4, Act 2 - #6 y #7)
+   #6: Fade-in escalonado
+   #7: Texto con efecto typewriter
+   ============================================ */
+
+/* #6: Fade-in escalonado para las tarjetas */
+.stagger-fade > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-fade > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-fade > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-fade > *:nth-child(4) { transition-delay: 0.4s; }
+
+/* #7: Efecto de aparición con escala */
+.scale-in {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ============================================
+   BANNER PUBLICITARIO (Tarea 4, Act 1)
+   ============================================ */
+.banner-section {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.banner-ad {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(106, 76, 147, 0.2);
+}
+
+.banner-ad img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.banner-ad:hover img {
+  transform: scale(1.03);
+}
+
+.banner-ad .banner-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(106, 76, 147, 0.9), transparent);
+  color: white;
+  text-align: left;
+}
+
+.banner-ad .banner-overlay h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+
+.banner-ad .banner-overlay p {
+  font-size: 0.95rem;
+}
+
+.banner-ad .banner-cta {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  background: var(--white);
+  color: var(--primary);
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all var(--duracion-transicion) ease;
+}
+
+.banner-ad .banner-cta:hover {
+  background: var(--secondary);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
+/* Animación del banner */
+.banner-ad {
+  animation: bannerAparicion 1s ease-out;
+}
+
+@keyframes bannerAparicion {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    box-shadow: 0 0 0 rgba(106, 76, 147, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0 4px 20px rgba(106, 76, 147, 0.2);
+  }
+}
+
+/* ============================================
+   FICHA DE PRODUCTO
+   ============================================ */
+.producto {
+  padding: 2rem;
+  background-color: #faf7fc;
+}
+
+.producto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.producto-detalle h1 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: var(--primary, #4b0082);
+}
+
+.precio {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #663399;
+  margin-bottom: 0.8rem;
+}
+
+.caracteristicas {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.caracteristicas li {
+  margin-bottom: 0.4rem;
+  color: #444;
+}
+
+.descripcion {
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.btn-comprar {
+  background-color: #663399;
+  color: white;
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color var(--duracion-transicion), transform var(--duracion-transicion);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+}
+
+.btn-comprar:hover,
+.btn-comprar:focus-visible {
+  background-color: #8657d2;
+  transform: translateY(-2px);
+}
+
+.btn-comprar.btn-danger {
+  background-color: var(--danger);
+}
+
+.btn-comprar.btn-danger:hover {
+  background-color: #c62828;
+}
+
+.btn-comprar.btn-success {
+  background-color: var(--success);
+}
+
+.btn-comprar.btn-success:hover {
+  background-color: #388e3c;
+}
+
+/* ============================================
+   PÁGINA DE BÚSQUEDA
+   ============================================ */
+.busqueda {
+  padding: 2rem;
+  background-color: #faf7fc;
+  text-align: center;
+}
+
+.busqueda h1 {
+  color: var(--primary, #4b0082);
+  margin-bottom: 2rem;
+}
+
+.resultados {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.tarjeta {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1 1 40%;
+  max-width: 300px;
+  max-height: 450px;
+  text-align: center;
+  padding: 1rem;
+  transition: transform var(--duracion-transicion) ease, box-shadow var(--duracion-transicion) ease;
+  cursor: pointer;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta img {
+  width: 100%;
+  height: 81%;
+  object-fit: cover;
+  border-radius: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.tarjeta h2 {
+  font-size: 1.1rem;
+  color: var(--primary, #4b0082);
+}
+
+.tarjeta p {
+  color: #444;
+  font-weight: bold;
+}
+
+/* ============================================
+   CARRITO
+   ============================================ */
+.carrito {
+  padding: 2rem;
+  text-align: center;
+  background-color: var(--accent);
+}
+
+.carrito h1 {
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+.carrito-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.item img {
+  width: 120px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.item .info {
+  text-align: left;
+}
+
+.resumen {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
+
+.resumen .resumen-botones {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================
+   CONTACTO
+   ============================================ */
+.contacto {
+  padding: 2rem 0;
+  background-color: var(--accent);
+}
+
+.contacto h1,
+.contacto h2 {
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.historia p {
+  max-width: 800px;
+  margin: 0 auto 1rem;
+  text-align: center;
+}
+
+.equipo {
+  padding: 2rem 0;
+  background-color: var(--white);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.info-grid .mapa img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.datos {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.datos p {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.datos img {
+  width: 20px;
+  height: 20px;
+}
+
+/* ============================================
+   PÁGINA DE INFORMACIÓN (Tarea 3, Act 4)
+   ============================================ */
+.informacion {
+  padding: 2rem 0;
+  background-color: var(--accent);
+}
+
+.informacion h1,
+.informacion h2 {
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.informacion .container {
+  max-width: 1000px;
+}
+
+.descripcion-empresa {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* Foto de equipo con filtro en mitad derecha */
+.equipo-foto-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.equipo-foto-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.equipo-foto-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(106, 76, 147, 0.15));
+  filter: sepia(0.3) saturate(0.8);
+  pointer-events: none;
+}
+
+.equipo-foto-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+  background: inherit;
+  filter: sepia(0.2) brightness(0.9);
+  mix-blend-mode: multiply;
+}
+
+/* Video container responsive */
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: var(--radius);
+}
+
+/* Google Map responsive */
+.mapa-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.mapa-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: var(--radius);
+}
+
+/* ============================================
+   LIGHTBOX / MODAL (Tarea 3, Act 3)
+   ============================================ */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+}
+
+.lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.5);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--duracion-transicion);
+  border: none;
+}
+
+.lightbox-close:hover {
+  background: rgba(106, 76, 147, 0.8);
+}
+
+/* ============================================
+   CHART.JS CONTAINER (Tarea 4, Act 4)
+   ============================================ */
+.chart-section {
+  padding: 3rem 1rem;
+  text-align: center;
+  background-color: var(--accent);
+}
+
+.chart-section h2 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.chart-section p {
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  color: #555;
+}
+
+.chart-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.chart-controls {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.chart-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  border-radius: 2rem;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  transition: all var(--duracion-transicion);
+}
+
+.chart-btn:hover,
+.chart-btn.active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  background-color: var(--accent);
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color var(--duracion-transicion);
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.socials {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--white);
+  transition: all var(--duracion-transicion) ease;
+  text-decoration: none;
+}
+
+.socials a:hover,
+.socials a:focus-visible {
+  opacity: 0.8;
+  transform: scale(1.2);
+  background: var(--secondary);
+}
+
+.socials a img {
+  width: 18px;
+  height: 18px;
+}
+
+/* ============================================
+   SKIP NAV LINK (Accesibilidad)
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--primary);
+  color: var(--white);
+  padding: 0.8rem 1.2rem;
+  z-index: 10000;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Cart como enlace (Act 5 - Corrección: button anidado dentro de a) */
+a.cart-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  transition: background-color var(--duracion-transicion), transform var(--duracion-transicion);
+}
+
+a.cart-btn:hover,
+a.cart-btn:focus-visible {
+  background-color: var(--secondary);
+  transform: scale(1.05);
+}
+
+body.theme-dark a.cart-btn {
+  background-color: var(--secondary);
+  color: #fff;
+}
+
+body.theme-dark a.cart-btn:hover,
+body.theme-dark a.cart-btn:focus-visible {
+  background-color: var(--primary);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    min-height: 300px;
+    padding: 3rem 1rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  /* Menú hamburguesa visible en móvil (Act 5) */
+  .menu-toggle {
+    display: flex;
+    order: -1;
+  }
+
+  .header-content {
+    flex-wrap: wrap;
+  }
+
+  /* Menú móvil colapsable */
+  .main-nav {
+    display: none;
+    width: 100%;
+    order: 10;
+  }
+
+  .main-nav.active {
+    display: block;
+  }
+
+  .main-nav.active ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 0;
+  }
+
+  .main-nav.active ul li a {
+    display: block;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(106, 76, 147, 0.15);
+    font-size: 1.1rem;
+  }
+
+  .main-nav.active ul li:last-child a {
+    border-bottom: none;
+  }
+
+  .header-content {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .producto-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tarjeta {
+    flex: 1 1 80%;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .item .info {
+    text-align: center;
+  }
+
+  .resumen .resumen-botones {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .banner-ad .banner-overlay {
+    padding: 1rem;
+  }
+
+  .banner-ad .banner-overlay h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* ============================================
+   MODO OSCURO (Tarea 1, Act 4)
+   ============================================ */
+body.theme-dark {
+  --primary: #cbb5ff;
+  --secondary: #9f7aea;
+  --accent: #2a2a3b;
+  --text-color: #e8e8f0;
+  --white: #1e1e2e;
+}
+
+body.theme-dark {
+  background: linear-gradient(to bottom, #1e1e2e, #2a2a3b);
+  color: var(--text-color);
+}
+
+body.theme-dark .site-header,
+body.theme-dark .site-footer {
+  background-color: var(--accent);
+  color: var(--text-color);
+}
+
+body.theme-dark .main-nav a {
+  color: var(--text-color);
+}
+
+body.theme-dark .main-nav a:hover,
+body.theme-dark .main-nav a:focus-visible {
+  color: var(--primary);
+}
+
+body.theme-dark .hero {
+  background: linear-gradient(rgba(50, 30, 80, 0.8), rgba(50, 30, 80, 0.8));
+  color: var(--text-color);
+}
+
+body.theme-dark .section,
+body.theme-dark .producto,
+body.theme-dark .busqueda,
+body.theme-dark .highlight,
+body.theme-dark .equipo,
+body.theme-dark .informacion,
+body.theme-dark .chart-section {
+  background-color: #1e1e2e !important;
+  color: var(--text-color);
+}
+
+body.theme-dark .card,
+body.theme-dark .tarjeta,
+body.theme-dark .producto-grid,
+body.theme-dark .chart-container {
+  background-color: #1e1e2e;
+  color: var(--text-color);
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+  border: 1px solid #3c3c55;
+}
+
+body.theme-dark .card img,
+body.theme-dark .tarjeta img,
+body.theme-dark .producto-imagen img {
+  filter: brightness(0.9) contrast(0.95);
+  border-color: var(--secondary);
+}
+
+body.theme-dark .highlight {
+  background: linear-gradient(90deg, #3d2b6d, #5a3ca0);
+  color: var(--text-color);
+}
+
+body.theme-dark .btn-cta,
+body.theme-dark .btn-comprar,
+body.theme-dark .cart-btn {
+  background-color: var(--secondary);
+  color: #fff;
+}
+
+body.theme-dark .btn-cta:hover,
+body.theme-dark .btn-comprar:hover,
+body.theme-dark .cart-btn:hover {
+  background-color: var(--primary);
+}
+
+body.theme-dark .socials a {
+  background: #2a2a3b;
+}
+
+body.theme-dark .socials a:hover {
+  background: var(--secondary);
+}
+
+body.theme-dark .caracteristicas li,
+body.theme-dark .descripcion,
+body.theme-dark .tarjeta p {
+  color: var(--text-color);
+}
+
+body.theme-dark .precio {
+  color: var(--primary);
+}
+
+body.theme-dark .datos p {
+  color: var(--text-color);
+}
+
+body.theme-dark .header-actions input[type="search"] {
+  background-color: #2a2a3b;
+  border-color: #3c3c55;
+  color: var(--text-color);
+}
+
+body.theme-dark .chart-btn {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+body.theme-dark .chart-btn:hover,
+body.theme-dark .chart-btn.active {
+  background: var(--primary);
+  color: #1e1e2e;
+}
+
+/* Toggle tema */
+.theme-toggle {
+  background: none;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  transition: all var(--duracion-transicion);
+}
+
+.theme-toggle:hover {
+  background: var(--primary);
+  color: var(--white);
+}
+
+/* ============================================
+   HAMBURGUESA MÓVIL (Act 5 - Accesibilidad)
+   ============================================ */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  background: none;
+  border: 2px solid var(--primary);
+  border-radius: 0.4rem;
+  padding: 0.4rem;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  transition: all var(--duracion-transicion);
+}
+
+.menu-toggle:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.hamburger-line {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: var(--text-color);
+  border-radius: 2px;
+  transition: all var(--duracion-transicion);
+}
+
+/* Animación hamburguesa → X */
+.menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ============================================
+   SCREEN READER ONLY (Act 5 - Accesibilidad)
+   ============================================ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ============================================
+   ACCESIBILIDAD: PREFERS-REDUCED-MOTION (Tarea 4, Act 2)
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .scroll-animate,
+  .scale-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .btn-cta {
+    animation: none;
+  }
+
+  .separator-animated {
+    animation: none;
+    background: var(--primary);
+  }
+
+  .animated-border {
+    animation: none;
+    background: var(--primary);
+  }
+}
+
+/* ============================================
+   FOCUS VISIBLE GLOBAL
+   ============================================ */
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
